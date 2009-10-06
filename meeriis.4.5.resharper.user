@@ -1,0 +1,86 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="A798211D-9AE4-4384-9DD6-291C9B6E298D/d:test_site/f:index.htm" caret="141" fromTop="6" />
+      <File id="A3597E60-CF23-4842-AEFC-13E8318F5098/f:Class1.cs" caret="353" fromTop="11" />
+      <File id="A798211D-9AE4-4384-9DD6-291C9B6E298D/f:Class1.cs" caret="270" fromTop="14" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="A3597E60-CF23-4842-AEFC-13E8318F5098/f:Class1.cs" caret="0" fromTop="0" />
+      <File id="A798211D-9AE4-4384-9DD6-291C9B6E298D/d:test_site/f:index.htm" caret="140" fromTop="6" />
+      <File id="A798211D-9AE4-4384-9DD6-291C9B6E298D/f:Class1.cs" caret="344" fromTop="15" />
+      <File id="A798211D-9AE4-4384-9DD6-291C9B6E298D/f:Class1.cs" caret="193" fromTop="13" />
+      <File id="A798211D-9AE4-4384-9DD6-291C9B6E298D/f:Class1.cs" caret="0" fromTop="0" />
+      <File id="A798211D-9AE4-4384-9DD6-291C9B6E298D/f:Class1.cs" caret="816" fromTop="31" />
+      <File id="A798211D-9AE4-4384-9DD6-291C9B6E298D/f:Class1.cs" caret="633" fromTop="24" />
+      <File id="A3597E60-CF23-4842-AEFC-13E8318F5098/f:Class1.cs" caret="557" fromTop="14" />
+      <File id="A3597E60-CF23-4842-AEFC-13E8318F5098/f:Class1.cs" caret="509" fromTop="13" />
+      <File id="A3597E60-CF23-4842-AEFC-13E8318F5098/f:Class1.cs" caret="73" fromTop="4" />
+      <File id="A3597E60-CF23-4842-AEFC-13E8318F5098/f:Class1.cs" caret="352" fromTop="11" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="public" priority="1" />
+      <Item value="void" priority="1" />
+      <Item value="string" priority="1" />
+      <Item value="new" priority="5" />
+      <Item value="Website" priority="0" />
+      <Item value="website" priority="0" />
+      <Item value="ctor" priority="0" />
+      <Item value="codeBase" priority="1" />
+      <Item value="request" priority="1" />
+      <Item value="HttpWebRequest" priority="0" />
+      <Item value="Uri" priority="0" />
+      <Item value="as" priority="0" />
+      <Item value="HttpWebResponse" priority="0" />
+      <Item value="response" priority="0" />
+      <Item value="StringReader" priority="1" />
+      <Item value="reader" priority="3" />
+      <Item value="TextReader" priority="1" />
+      <Item value="StreamReader" priority="1" />
+      <Item value="Assert" priority="0" />
+      <Item value="directory" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:meeriis.Website">
+      <Item value="Create" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Reflection.Assembly">
+      <Item value="GetExecutingAssembly" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Reflection.Assembly">
+      <Item value="CodeBase" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.Path">
+      <Item value="Combine" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Net.HttpWebRequest">
+      <Item value="Create" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Net.WebRequest">
+      <Item value="GetResponse" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Net.HttpWebResponse">
+      <Item value="GetResponseStream" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.StreamReader">
+      <Item value="ReadToEnd" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Xunit.Assert">
+      <Item value="Contains" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

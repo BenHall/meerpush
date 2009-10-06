@@ -1,0 +1,5 @@
+C:\sourcecode\meeriis\meeriis\bin\Debug\meeriis.dll
+C:\sourcecode\meeriis\meeriis\bin\Debug\meeriis.pdb
+C:\sourcecode\meeriis\meeriis\obj\Debug\ResolveAssemblyReference.cache
+C:\sourcecode\meeriis\meeriis\obj\Debug\meeriis.dll
+C:\sourcecode\meeriis\meeriis\obj\Debug\meeriis.pdb

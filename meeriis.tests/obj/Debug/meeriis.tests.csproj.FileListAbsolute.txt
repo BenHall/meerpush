@@ -1,0 +1,11 @@
+C:\sourcecode\meeriis\meeriis.tests\bin\Debug\meeriis.tests.dll
+C:\sourcecode\meeriis\meeriis.tests\bin\Debug\meeriis.tests.pdb
+C:\sourcecode\meeriis\meeriis.tests\bin\Debug\meeriis.dll
+C:\sourcecode\meeriis\meeriis.tests\bin\Debug\xunit.dll
+C:\sourcecode\meeriis\meeriis.tests\bin\Debug\xunit.extensions.dll
+C:\sourcecode\meeriis\meeriis.tests\bin\Debug\xunit.extensions.xml
+C:\sourcecode\meeriis\meeriis.tests\bin\Debug\meeriis.pdb
+C:\sourcecode\meeriis\meeriis.tests\bin\Debug\xunit.xml
+C:\sourcecode\meeriis\meeriis.tests\obj\Debug\ResolveAssemblyReference.cache
+C:\sourcecode\meeriis\meeriis.tests\obj\Debug\meeriis.tests.dll
+C:\sourcecode\meeriis\meeriis.tests\obj\Debug\meeriis.tests.pdb

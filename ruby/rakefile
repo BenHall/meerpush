@@ -1,0 +1,13 @@
+require 'rake'
+require 'C:/sourcecode/meeriis/meeriis/bin/Debug/meeriis.dll'
+include Meeriis
+
+
+task :default => [:create_website]  
+
+desc "Creates website"
+task :create_website do
+   w = Website.new 'localhost'
+   w.create 'test_site', 'C:\sourcecode\meeriis\meeriis.tests\test_site'
+end
+
