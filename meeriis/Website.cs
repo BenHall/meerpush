@@ -26,6 +26,7 @@ namespace Meeriis
 
             DirectoryEntry website = GetWebsite(Server, websiteId);
             SetSecurity(website);
+            SetFriendlyName(website);
             SetASPnetVersion(website);
             StartWebsite(website);
 
@@ -37,12 +38,13 @@ namespace Meeriis
             website.Properties["AppPoolId"][0] = "DefaultAppPool";
             website.Properties["AccessFlags"][0] = 512;
             website.Properties["AccessRead"][0] = true;
-
-            //// set Application Name (friendly name)
-            //// doesn't seem to work...
-            //w3svc.Properties["AppFriendlyName"][0] = siteDescription;
-
             website.Properties["AuthFlags"][0] = 5;
+            website.CommitChanges();
+        }
+
+        private void SetFriendlyName(DirectoryEntry website)
+        {
+            website.Properties["AppFriendlyName"][0] = website.Name;
             website.CommitChanges();
         }
 
