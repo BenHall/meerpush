@@ -1,9 +1,9 @@
-﻿using System;
-using System.DirectoryServices;
+﻿using System.DirectoryServices;
+using Meeriis;
 
-namespace Meeriis
+namespace MeerIIS.IIS6
 {
-    public class Website
+    public class Website : IWebsite
     {
         private string Server;
 
@@ -77,15 +77,9 @@ namespace Meeriis
 
             foreach (DirectoryEntry site in w3svc.Children)
             {
-                if (site.Properties["ServerComment"] != null)
+                if (string.Compare(site.Properties["ServerComment"].Value.ToString(), websiteName, false) == 0)
                 {
-                    if (site.Properties["ServerComment"].Value != null)
-                    {
-                        if (string.Compare(site.Properties["ServerComment"].Value.ToString(), websiteName, false) == 0)
-                        {
-                            result = true;
-                        }
-                    }
+                    result = true;
                 }
             }
 

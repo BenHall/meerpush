@@ -8,7 +8,7 @@
     <ProjectGuid>{A798211D-9AE4-4384-9DD6-291C9B6E298D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>meeriis.tests</RootNamespace>
+    <RootNamespace>MeerIIS.tests</RootNamespace>
     <AssemblyName>meeriis.tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -53,7 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateWebsiteTests.cs" />
+    <Compile Include="IIS6\AppPoolTests.cs" />
+    <Compile Include="IIS6\WebsiteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

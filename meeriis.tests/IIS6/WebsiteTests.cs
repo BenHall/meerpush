@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using MeerIIS.IIS6;
 using Xunit;
 
-namespace Meeriis.tests
+namespace MeerIIS.tests.IIS6
 {
     public class CreateWebsiteTests
     {
@@ -11,6 +12,7 @@ namespace Meeriis.tests
 
         public CreateWebsiteTests()
         {
+            //TODO
             string codeBase = @"C:\sourcecode\meeriis\meeriis.tests";
             test_site = Path.Combine(codeBase, "test_site");
         }

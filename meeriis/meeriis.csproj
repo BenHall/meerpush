@@ -8,7 +8,7 @@
     <ProjectGuid>{A3597E60-CF23-4842-AEFC-13E8318F5098}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>meeriis</RootNamespace>
+    <RootNamespace>MeerIIS</RootNamespace>
     <AssemblyName>meeriis</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -46,8 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Website.cs" />
+    <Compile Include="IIS6\AppPool.cs" />
+    <Compile Include="IIS6\Website.cs" />
+    <Compile Include="IWebsite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IIS7\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
