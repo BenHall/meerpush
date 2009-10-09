@@ -1,0 +1,13 @@
+require 'rake'
+
+desc "output"
+task :output do
+    File.readlines('script').map do |l| 
+		method = l.downcase.gsub(' ', '_')
+		eval("#{method}('test')")
+	end
+end
+ 
+def create_website(name)
+   puts "Creating site #{name}"
+end
