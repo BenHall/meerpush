@@ -1,34 +1,30 @@
 require 'rake'
-
-desc "output"
-task :output do
-    File.readlines('script').map do |line| 
-		method = get_method line
-		arg = get_argument line
-		eval("#{method} '#{arg}'")
-	end
-end
-
-def get_argument(method)
-	r = /\w+\s'(.*?)'/
-	method =~ r
-	Regexp.last_match 1
-end
-
-def get_method(line)
-	 index = line.index("'") - 1
-	 m_no_param = line[0, index]
-	 m_no_param.downcase.gsub(' ', '_')
-end
+require '../meeriis'
+require 'create'
  
 def create_website(name)
    puts "Creating site #{name}"
+	@w = MeerIIS::IIS6::Website.new 
+	@w.Server = 'localhost'
+    @w.Name = name
 end
 
 def with_home_directory(dir)
 	puts "Home Directory #{dir}"
+	@w.home = dir
+end
+
+def on_server(server)
+	puts "On server #{server}"
+	@w.server = server
 end
 
 def on_port(port)
 	puts "On port #{port}"
+	@w.port = port.to_i
+end
+
+def create_and_start()
+	puts "Starting"
+	@w.create
 end
