@@ -18,9 +18,13 @@ module Website
       
       def define
         task name do
-          'Creating website'
+          Website.log 'Creating website'
           @w.create
         end
       end 
+   end
+   
+   def self.log(msg)
+      puts msg
    end
 end
