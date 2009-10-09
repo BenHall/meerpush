@@ -1,27 +1,23 @@
-﻿using System.DirectoryServices;
+﻿using System;
+using System.DirectoryServices;
 using Meeriis;
 
 namespace MeerIIS.IIS6
 {
     public class Website : IWebsite
     {
-        private string Server;
+        public string Server { get; set; }
+        public string Name { get; set; }
+        public string Home { get; set; }
 
-        public Website(string server)
-        {
-            Server = server;
-        }
+        private int _port = 80;
+        public int Port { get { return _port; } set { _port = value; } }
 
-        public int Create(string name, string homeDirectory)
-        {
-            return Create(name, homeDirectory, 80);
-        }
-
-        public int Create(string name, string homeDirectory, int port)
+        public int Create()
         {
             DirectoryEntry w3svc = new DirectoryEntry(string.Format("IIS://{0}/w3svc", Server));
           
-            object[] newsite = new object[] { name, new object[] { string.Format(":{0}:", port) }, homeDirectory };
+            object[] newsite = new object[] { Name, new object[] { string.Format(":{0}:", Port) }, Home };
             int websiteId = (int)w3svc.Invoke("CreateNewSite", newsite);
 
             DirectoryEntry website = GetWebsite(Server, websiteId);
@@ -69,7 +65,7 @@ namespace MeerIIS.IIS6
             website.Invoke("Start", null);
         }
 
-        public bool Exist(string websiteName)
+        public bool Exist()
         {
             bool result = false;
 
@@ -77,13 +73,18 @@ namespace MeerIIS.IIS6
 
             foreach (DirectoryEntry site in w3svc.Children)
             {
-                if (string.Compare(site.Properties["ServerComment"].Value.ToString(), websiteName, false) == 0)
+                if (string.Compare(site.Properties["ServerComment"].Value.ToString(), Name, false) == 0)
                 {
                     result = true;
                 }
             }
 
             return result;
+        }
+
+        public void Delete()
+        {
+            throw new NotImplementedException();
         }
     }
 }

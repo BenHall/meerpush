@@ -1,16 +1,14 @@
-﻿using System;
-using System.IO;
-using System.Net;
+﻿using System.IO;
 using MeerIIS.IIS6;
 using Xunit;
 
 namespace MeerIIS.tests.IIS6
 {
-    public class CreateWebsiteTests
+    public class WebsiteTests
     {
         string test_site;
 
-        public CreateWebsiteTests()
+        public WebsiteTests()
         {
             //TODO
             string codeBase = @"C:\sourcecode\meeriis\meeriis.tests";
@@ -20,11 +18,16 @@ namespace MeerIIS.tests.IIS6
         [Fact]
         public void Can_create_iis_website_given_name()
         {
-            Website website = new Website("localhost");
-            int websiteId = website.Create("test_site", test_site, 8888);
+            Website website = new Website();
+            website.Server = "localhost";
+            website.Name = "test_site";
+            website.Home = test_site;
+            website.Port = 8888;
+
+            int websiteId = website.Create();
             Assert.True(websiteId > 0);
 
-            string html = GetSite("http://localhost:8888/");
+            string html = Helper.GetSite("http://localhost:8888/");
 
             Assert.Contains("Hello World", html);
         }
@@ -32,18 +35,27 @@ namespace MeerIIS.tests.IIS6
         [Fact]
         public void Can_get_if_website_exists()
         {
-            Website website = new Website("localhost");
-            bool exist = website.Exist("test_site");
+            Website website = new Website();
+            website.Server = "localhost";
+            website.Name = "test_site";
+            website.Home = test_site;
+            website.Port = 8888;
+
+            bool exist = website.Exist();
             Assert.False(exist);
         }
 
-        private string GetSite(string uri)
+        [Fact]
+        public void Can_delete_website()
         {
-            var request = HttpWebRequest.Create(new Uri(uri));
-            var response = request.GetResponse() as HttpWebResponse;
-            StreamReader reader = new StreamReader(response.GetResponseStream());
+            Website website = new Website();
+            website.Server = "localhost";
+            website.Name = "test_site";
+            website.Home = test_site;
+            website.Port = 8888;
 
-            return reader.ReadToEnd();
+            website.Delete();
+            Assert.False(website.Exist());
         }
     }
 }
