@@ -2,12 +2,33 @@ require 'rake'
 
 desc "output"
 task :output do
-    File.readlines('script').map do |l| 
-		method = l.downcase.gsub(' ', '_')
-		eval("#{method}('test')")
+    File.readlines('script').map do |line| 
+		method = get_method line
+		arg = get_argument line
+		eval("#{method} '#{arg}'")
 	end
+end
+
+def get_argument(method)
+	r = /\w+\s'(.*?)'/
+	method =~ r
+	Regexp.last_match 1
+end
+
+def get_method(line)
+	 index = line.index("'") - 1
+	 m_no_param = line[0, index]
+	 m_no_param.downcase.gsub(' ', '_')
 end
  
 def create_website(name)
    puts "Creating site #{name}"
+end
+
+def with_home_directory(dir)
+	puts "Home Directory #{dir}"
+end
+
+def on_port(port)
+	puts "On port #{port}"
 end

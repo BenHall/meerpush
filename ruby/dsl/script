@@ -1,1 +1,3 @@
-Create Website
+Create website 'test_site'
+with home directory 'c:\inetpub\wwwroot'
+on port '8888'
