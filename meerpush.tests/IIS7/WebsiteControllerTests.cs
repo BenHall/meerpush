@@ -34,7 +34,7 @@ namespace MeerPush.tests.IIS7
         {
             WebsiteController websiteController = new WebsiteController(new Website{Name = "test_site", Server = "localhost"});
 
-            bool exist = websiteController.Exist();
+            bool exist = websiteController.Exists();
             Assert.False(exist);
         }
 
@@ -44,7 +44,7 @@ namespace MeerPush.tests.IIS7
             WebsiteController websiteController = new WebsiteController(new Website { Name = "test_site", Server = "localhost" });
 
             websiteController.Create();
-            bool exist = websiteController.Exist();
+            bool exist = websiteController.Exists();
             Assert.True(exist);
         }
 
@@ -54,7 +54,7 @@ namespace MeerPush.tests.IIS7
             WebsiteController websiteController = new WebsiteController(new Website { Name = "test_site", Server = "localhost" });
 
             websiteController.Delete();
-            Assert.False(websiteController.Exist());
+            Assert.False(websiteController.Exists());
         }
 
         public void Dispose()
@@ -63,7 +63,7 @@ namespace MeerPush.tests.IIS7
 
             websiteController.Delete();
 
-            Assert.False(websiteController.Exist());
+            Assert.False(websiteController.Exists());
         }
     }
 }

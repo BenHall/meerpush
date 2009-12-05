@@ -30,9 +30,26 @@ namespace MeerPush.IIS6
             return new DirectoryEntry(GetIISEntry());
         }
 
-        internal DirectoryEntry GetWebsite(string server, int websiteId)
+        public DirectoryEntry GetWebsite()
         {
-            return new DirectoryEntry(string.Format("IIS://{0}/w3svc/{1}", server, websiteId));
+            DirectoryEntry admin = GetIISAdmin();
+
+            foreach (DirectoryEntry site in admin.Children)
+            {
+                PropertyValueCollection serverComment = site.Properties["ServerComment"];
+                if (serverComment == null)
+                    continue;
+
+                if (serverComment.Value == null || string.IsNullOrEmpty(serverComment.Value.ToString()))
+                    continue;
+
+                if (string.Compare(serverComment.Value.ToString(), Site.Name, false) == 0)
+                {
+                    return site;
+                }
+            }
+
+            return null;
         }
 
         protected DirectoryEntry GetAppPoolAdmin()

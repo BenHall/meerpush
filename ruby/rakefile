@@ -1,7 +1,4 @@
 require 'meerpush'
-require 'rake'
-require 'dsl/create'
-require 'dsl/steps'
 
 task :default => :create
 

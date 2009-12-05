@@ -81,12 +81,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\meerpush\meerpush.csproj">
-      <Project>{A3597E60-CF23-4842-AEFC-13E8318F5098}</Project>
-      <Name>meeriis</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="test_site\index.htm" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +99,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\meerpush\meerpush.csproj">
+      <Project>{A3597E60-CF23-4842-AEFC-13E8318F5098}</Project>
+      <Name>meerpush</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

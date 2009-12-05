@@ -49,6 +49,11 @@ namespace :dsl  do
 
   def get_method(line)
        m_no_param = line
+       
+
+
+
+
        arg_index = line.index("'")
        unless arg_index.nil?
           index = arg_index - 1

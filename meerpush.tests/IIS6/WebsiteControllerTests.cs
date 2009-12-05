@@ -13,7 +13,7 @@ namespace MeerPush.tests.IIS6
         {
             WebsiteController websiteController = new WebsiteController(CreateSiteObject());
 
-            bool exist = websiteController.Exist();
+            bool exist = websiteController.Exists();
             Assert.False(exist);
         }
 
@@ -43,7 +43,7 @@ namespace MeerPush.tests.IIS6
             WebsiteController websiteController = new WebsiteController(CreateSiteObject());
 
             websiteController.Delete();
-            Assert.False(websiteController.Exist());
+            Assert.False(websiteController.Exists());
         }
 
         private Website CreateSiteObject()

@@ -1,5 +1,15 @@
+def remove_website(name, server='localhost')
+    puts "Deleting website #{name} on #{server}"
+    @w = MeerPush::IIS6::WebsiteController.new
+    @site = MeerPush::Website.new
+	@site.server = server
+    @site.name = name
+    @w.Site = @site
+    @w.delete if @w.exists
+end
+
 def create_website(name, server='localhost')
-    puts "Creating website #{name}"
+    puts "Creating website #{name} on #{server}"
 	@w = MeerPush::IIS6::WebsiteController.new
     @site = MeerPush::Website.new
 	@site.server = server
@@ -23,12 +33,9 @@ end
 
 def create_and_start()
 	puts "Creating and starting"
-    @w.Site = @site;
-	@site.create
-end
-
-def method_missing(m, *args, &block)
-   raise create_missing_message(m, args) + failed_status_message
+    @w.Site = @site
+	@w.create
+    @w.start
 end
 
 def failed_status_message()
@@ -37,7 +44,7 @@ end
 
 def create_missing_message(m, args)
    "The step '#{m}' with #{args.length} arguments is missing.
-To define the method use the following code:\n
+To define the step, use code similar to below:\n
    def #{m}(#{args.join(', ')})
      #TODO
    end"

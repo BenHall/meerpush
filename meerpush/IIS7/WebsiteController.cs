@@ -25,7 +25,14 @@ namespace MeerPush.IIS7
             return (int)iisSite.Id;
         }
 
-        public bool Exist()
+        public void Start()
+        {
+            ServerManager serverManager = ServerManager.OpenRemote(Site.Server);
+            Site iisSite = serverManager.Sites[Site.Name];
+            iisSite.Start();
+        }
+
+        public bool Exists()
         {
             ServerManager serverManager = ServerManager.OpenRemote(Site.Server);
             Site iisSite = serverManager.Sites[Site.Name];

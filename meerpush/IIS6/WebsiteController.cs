@@ -1,4 +1,6 @@
-﻿using System.DirectoryServices;
+﻿using System;
+using System.Data;
+using System.DirectoryServices;
 
 namespace MeerPush.IIS6
 {
@@ -14,15 +16,23 @@ namespace MeerPush.IIS6
 
         public int Create()
         {
-            int websiteId = CreateWebsite(GetIISSiteEntryName());
+            try
+            {
+                int websiteId = CreateWebsite(GetIISSiteEntryName());
 
-            DirectoryEntry website = GetWebsite(Site.Server, websiteId);
-            SetSecurity(website);
-            SetFriendlyName(website);
-            SetASPnetVersion(website);
-            StartWebsite(website);
+                DirectoryEntry website = GetWebsite();
+                SetSecurity(website);
+                SetFriendlyName(website);
+                SetASPnetVersion(website);
 
-            return websiteId;
+                Site.WebsiteId = websiteId;
+
+                return websiteId;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
         }
 
         private int CreateWebsite(object[] newsite)
@@ -57,12 +67,13 @@ namespace MeerPush.IIS6
             website.CommitChanges();
         }
 
-        private void StartWebsite(DirectoryEntry website)
+        public void Start()
         {
+            DirectoryEntry website = GetWebsite();
             website.Invoke("Start", null);
         }
 
-        public bool Exist()
+        public bool Exists()
         {
             bool result = false;
 
@@ -70,9 +81,17 @@ namespace MeerPush.IIS6
 
             foreach (DirectoryEntry site in admin.Children)
             {
-                if (string.Compare(site.Properties["ServerComment"].Value.ToString(), Site.Name, false) == 0)
+                PropertyValueCollection serverComment = site.Properties["ServerComment"];
+                if (serverComment == null) 
+                    continue;
+
+                if (serverComment.Value == null || string.IsNullOrEmpty(serverComment.Value.ToString()))
+                    continue;
+
+                if (string.Compare(serverComment.Value.ToString(), Site.Name, false) == 0)
                 {
                     result = true;
+                    break;
                 }
             }
 
@@ -81,18 +100,29 @@ namespace MeerPush.IIS6
 
         public void Delete()
         {
-            DirectoryEntry admin = GetIISAdmin();
+            DirectoryEntry root = new DirectoryEntry("IIS://localhost/w3svc/" + GetWebsite().Name);
+            root.DeleteTree();
+        }
 
-            foreach (System.DirectoryServices.DirectoryEntry vd in admin.Children)
+        public void DumpIISInfo(DirectoryEntry entry)
+        {
+            if(entry == null) entry = new DirectoryEntry("IIS://localhost/w3svc");
+
+            foreach (DirectoryEntry childEntry in entry.Children)
             {
-                if(vd.Name == Site.Name)
+                using (childEntry)
                 {
-                    admin.Invoke("Delete", new string[] { vd.SchemaClassName, Site.Name });
-                    admin.CommitChanges();
-                 break;
+                    Console.WriteLine(string.Format("Child name [{0}]", childEntry.Name));
+                    foreach (PropertyValueCollection property in childEntry.Properties)
+                    {
+                        Console.WriteLine(string.Format("[{0}] [{1}] [{2}]", childEntry.Name, property.PropertyName, property.Value));
+                    }
+                    if (childEntry.Children != null)
+                    {
+                        this.DumpIISInfo(childEntry);
+                    }
                 }
             }
         }
-
     }
 }
