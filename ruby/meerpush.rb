@@ -1,5 +1,5 @@
 require 'rake/website'
 require '../meerpush/bin/Debug/meerpush.dll'
 require 'rake'
-require 'dsl/create'
+require 'dsl/deploy'
 require 'dsl/steps'

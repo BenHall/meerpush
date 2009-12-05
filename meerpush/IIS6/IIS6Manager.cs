@@ -6,7 +6,7 @@ namespace MeerPush.IIS6
     {
         public IIS6Manager()
         {
-            
+            Site = new Website();
         }
         protected IIS6Manager(Website website)
         {

@@ -3,7 +3,9 @@
     public class Website
     {
         public int WebsiteId { get; set; }
-        public string Server { get; set; }
+        private string _server = "localhost";
+        public string Server { get { return _server; } set { _server = value; } }
+
         public string Name { get; set; }
         public string Home { get; set; }
         public string HostHeader { get; set; }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Web.Administration;
+﻿using System;
+using Microsoft.Web.Administration;
 
 namespace MeerPush.IIS7
 {
@@ -8,7 +9,7 @@ namespace MeerPush.IIS7
 
         public WebsiteController()
         {
-            
+            Site = new Website();
         }
 
         public WebsiteController(Website site)
@@ -18,32 +19,54 @@ namespace MeerPush.IIS7
 
         public int Create()
         {
-            ServerManager serverManager = ServerManager.OpenRemote(Site.Server);
-            Site iisSite = serverManager.Sites.Add(Site.Name, Site.Home, Site.Port);
-            serverManager.CommitChanges();
+            try
+            {
+                Site iisSite;
+                using (ServerManager serverManager = ServerManager.OpenRemote(Site.Server))
+                {
+                    iisSite = serverManager.Sites.Add(Site.Name, Site.Home, Site.Port);
+                    serverManager.CommitChanges();
+                }
 
-            return (int)iisSite.Id;
+                return (int)iisSite.Id;
+            }
+            catch (Exception) { return -1; }
         }
 
         public void Start()
         {
-            ServerManager serverManager = ServerManager.OpenRemote(Site.Server);
-            Site iisSite = serverManager.Sites[Site.Name];
-            iisSite.Start();
+            try
+            {
+                using (ServerManager serverManager = ServerManager.OpenRemote(Site.Server))
+                {
+                    Site iisSite = serverManager.Sites[Site.Name];
+                    if (iisSite != null)
+                        iisSite.Start();
+                }
+            }
+            catch (Exception) {}
         }
 
         public bool Exists()
         {
-            ServerManager serverManager = ServerManager.OpenRemote(Site.Server);
-            Site iisSite = serverManager.Sites[Site.Name];
+            Site iisSite;
+            using (ServerManager serverManager = ServerManager.OpenRemote(Site.Server))
+            {
+                iisSite = serverManager.Sites[Site.Name];
+            }
             return iisSite != null;
         }
 
         public void Delete()
         {
-            ServerManager serverManager = ServerManager.OpenRemote(Site.Server);
-            serverManager.Sites[Site.Name].Delete();
-            serverManager.CommitChanges();
+            if (Exists())
+            {
+                using (ServerManager serverManager = ServerManager.OpenRemote(Site.Server))
+                {
+                    serverManager.Sites[Site.Name].Delete();
+                    serverManager.CommitChanges();
+                }
+            }
         }
     }
 }

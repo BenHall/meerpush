@@ -1,9 +1,19 @@
 require 'meerpush'
 
-task :default => :create
+task :default => [:delete, :create, :start]
+
+desc "Delete Website"
+Website::Delete.new do |w|
+    w.name = 'Meerpush_Website'
+end
 
 desc "Create Website"
 Website::Create.new do |w|
-    w.Name = 'Meerpush_Website'
-    w.Home = File.join File.dirname(Dir.getwd), '\meeriis.tests\test_site'
+    w.name = 'Meerpush_Website'
+    w.home = 'C:\inetpub\wwwroot'
+end
+
+desc "Start Website"
+Website::Start.new do |w|
+    w.name = 'Meerpush_Website'
 end

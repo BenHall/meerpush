@@ -100,8 +100,11 @@ namespace MeerPush.IIS6
 
         public void Delete()
         {
-            DirectoryEntry root = new DirectoryEntry("IIS://localhost/w3svc/" + GetWebsite().Name);
-            root.DeleteTree();
+            if (Exists())
+            {
+                DirectoryEntry root = new DirectoryEntry("IIS://localhost/w3svc/" + GetWebsite().Name);
+                root.DeleteTree();
+            }
         }
 
         public void DumpIISInfo(DirectoryEntry entry)
