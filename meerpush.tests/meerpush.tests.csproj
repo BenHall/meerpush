@@ -75,8 +75,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper.cs" />
-    <Compile Include="IIS6\AppPoolTests.cs" />
-    <Compile Include="IIS6\WebsiteTests.cs" />
+    <Compile Include="IIS6\AppPoolControllerTests.cs" />
+    <Compile Include="IIS6\WebsiteControllerTests.cs" />
     <Compile Include="IIS7\WebsiteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

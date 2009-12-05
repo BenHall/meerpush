@@ -19,9 +19,9 @@ namespace MeerPush.tests.IIS7
         [Fact]
         public void Can_create_iis_website_given_name()
         {
-            Website website = new Website {Server = "localhost", Name = "test_site", Home = test_site, Port = 8888};
+            WebsiteController websiteController = new WebsiteController(new Website{Server = "localhost", Name = "test_site", Home = test_site, Port = 8888});
 
-            int websiteId = website.Create();
+            int websiteId = websiteController.Create();
             Assert.True(websiteId > 0);
 
             string html = Helper.GetSite("http://localhost:8888/");
@@ -32,38 +32,38 @@ namespace MeerPush.tests.IIS7
         [Fact]
         public void Can_tell_if_website_exists()
         {
-            Website website = new Website {Name = "test_site", Server = "localhost"};
+            WebsiteController websiteController = new WebsiteController(new Website{Name = "test_site", Server = "localhost"});
 
-            bool exist = website.Exist();
+            bool exist = websiteController.Exist();
             Assert.False(exist);
         }
 
         [Fact]
         public void Website_exists_after_creating()
         {
-            Website website = new Website {Server = "localhost", Name = "test_site"};
+            WebsiteController websiteController = new WebsiteController(new Website { Name = "test_site", Server = "localhost" });
 
-            website.Create();
-            bool exist = website.Exist();
+            websiteController.Create();
+            bool exist = websiteController.Exist();
             Assert.True(exist);
         }
 
         [Fact]
         public void Can_delete_website()
         {
-            Website website = new Website {Server = "localhost", Name = "test_site"};
+            WebsiteController websiteController = new WebsiteController(new Website { Name = "test_site", Server = "localhost" });
 
-            website.Delete();
-            Assert.False(website.Exist());
+            websiteController.Delete();
+            Assert.False(websiteController.Exist());
         }
 
         public void Dispose()
         {
-            Website website = new Website {Name = "test_site"};
+            WebsiteController websiteController = new WebsiteController(new Website { Name = "test_site"});
 
-            website.Delete();
+            websiteController.Delete();
 
-            Assert.False(website.Exist());
+            Assert.False(websiteController.Exist());
         }
     }
 }

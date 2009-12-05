@@ -72,9 +72,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAppPool.cs" />
-    <Compile Include="IIS6\AppPool.cs" />
-    <Compile Include="IIS6\Website.cs" />
-    <Compile Include="IIS7\Website.cs" />
+    <Compile Include="AppPool.cs" />
+    <Compile Include="IIS6\AppPoolController.cs" />
+    <Compile Include="IIS6\IIS6.cs" />
+    <Compile Include="Website.cs" />
+    <Compile Include="IIS6\WebsiteController.cs" />
+    <Compile Include="IIS7\AppPoolController.cs" />
+    <Compile Include="IIS7\WebsiteController.cs" />
     <Compile Include="IWebsite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
