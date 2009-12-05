@@ -1,36 +1,36 @@
-﻿using Microsoft.Web.Administration;
+﻿using System;
+using Microsoft.Web.Administration;
 
 namespace MeerPush.IIS7
 {
-    public class WebsiteControllerController : IWebsiteController
+    public class AppPoolController : IAppPool
     {
         public Website Site { get; set; }
 
-        public WebsiteControllerController(Website site)
+        public AppPoolController(Website site)
         {
             Site = site;
         }
 
-        public int Create()
+        public void Create()
         {
             ServerManager serverManager = ServerManager.OpenRemote(Site.Server);
-            Site iisSite = serverManager.Sites.Add(Site.Name, Site.Home, Site.Port);
+            serverManager.ApplicationPools.Add(Site.AppPool.Name);
             serverManager.CommitChanges();
-
-            return (int)iisSite.Id;
         }
 
-        public bool Exist()
+        public bool Exists()
         {
             ServerManager serverManager = ServerManager.OpenRemote(Site.Server);
-            Site iisSite = serverManager.Sites[Site.Name];
-            return iisSite != null;
+            ApplicationPool applicationPool = serverManager.ApplicationPools[Site.AppPool.Name];
+            return applicationPool != null;
         }
 
         public void Delete()
         {
             ServerManager serverManager = ServerManager.OpenRemote(Site.Server);
-            serverManager.Sites[Site.Name].Delete();
+            ApplicationPool applicationPool = serverManager.ApplicationPools[Site.AppPool.Name];
+            applicationPool.Delete();
             serverManager.CommitChanges();
         }
     }

@@ -8,26 +8,24 @@ namespace MeerPush.tests.IIS6
         [Fact]
         public void Can_create_app_pool()
         {
-            AppPoolController poolController = new AppPoolController(new Website { Server = "localhost", AppPool = new AppPool { Name = "MasterAppPool" } });
-            poolController.Create();
+            AppPoolController poolControllerController = new AppPoolController(new Website { Server = "localhost", AppPool = new AppPool { Name = "MasterAppPool" } });
+            poolControllerController.Create();
 
-            Assert.True(poolController.Exists());
+            Assert.True(poolControllerController.Exists());
         }
 
         [Fact]
         public void Exists_returns_false_if_not_created()
         {
-            AppPoolController poolController = new AppPoolController(new Website { Server = "localhost", AppPool = new AppPool { Name = "MasterAppPool" } });
-            Assert.False(poolController.Exists());
+            AppPoolController poolControllerController = new AppPoolController(new Website { Server = "localhost", AppPool = new AppPool { Name = "MasterAppPool" } });
+            Assert.False(poolControllerController.Exists());
         }
 
         [Fact]
         public void Can_Delete_AppPool()
         {
-            AppPoolController poolController = new AppPoolController(new Website { Server = "localhost", AppPool = new AppPool { Name = "MasterAppPool" } });
-            bool deleted = poolController.Delete();
-
-            Assert.True(deleted);
+            AppPoolController poolControllerController = new AppPoolController(new Website { Server = "localhost", AppPool = new AppPool { Name = "MasterAppPool" } });
+            Assert.DoesNotThrow(poolControllerController.Delete);
         }
     }
 }

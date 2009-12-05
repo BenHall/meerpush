@@ -77,7 +77,7 @@
     <Compile Include="Helper.cs" />
     <Compile Include="IIS6\AppPoolControllerTests.cs" />
     <Compile Include="IIS6\WebsiteControllerTests.cs" />
-    <Compile Include="IIS7\WebsiteTests.cs" />
+    <Compile Include="IIS7\WebsiteControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
