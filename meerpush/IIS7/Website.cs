@@ -1,5 +1,4 @@
-﻿using MeerPush;
-using Microsoft.Web.Administration;
+﻿using Microsoft.Web.Administration;
 
 namespace MeerPush.IIS7
 {

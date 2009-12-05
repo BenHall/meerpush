@@ -1,6 +1,5 @@
 ﻿using System;
 using System.DirectoryServices;
-using MeerPush;
 
 namespace MeerPush.IIS6
 {

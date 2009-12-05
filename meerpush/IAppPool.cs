@@ -1,4 +1,4 @@
-namespace MeerPush.IIS6
+namespace MeerPush
 {
     public interface IAppPool
     {
