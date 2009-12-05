@@ -2,11 +2,16 @@
 
 namespace MeerPush.IIS7
 {
-    public class WebsiteControllerController : IWebsiteController
+    public class WebsiteController : IWebsiteController
     {
         public Website Site { get; set; }
 
-        public WebsiteControllerController(Website site)
+        public WebsiteController()
+        {
+            
+        }
+
+        public WebsiteController(Website site)
         {
             Site = site;
         }

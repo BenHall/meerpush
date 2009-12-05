@@ -1,4 +1,5 @@
-Create website 'test_site'
-with home directory 'C:\Inetpub\wwwroot'
-on port '8888'
+Create website 'test_site' on 'localhost'
+on port '8080'
+with 'abc' on '123123'
+with home directory 'D:\SourceControl\meerpush\meerpush.tests\test_site\'
 create and start

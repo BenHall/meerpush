@@ -7,6 +7,11 @@ namespace MeerPush.IIS7
     {
         public Website Site { get; set; }
 
+        public AppPoolController()
+        {
+            
+        }
+
         public AppPoolController(Website site)
         {
             Site = site;

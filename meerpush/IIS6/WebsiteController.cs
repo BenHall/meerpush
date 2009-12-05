@@ -2,11 +2,14 @@
 
 namespace MeerPush.IIS6
 {
-    public class WebsiteControllerController : IIS6Manager, IWebsiteController
+    public class WebsiteController : IIS6Manager, IWebsiteController
     {
         string CREATE_SITE_METHOD_NAME = "CreateNewSite";
 
-        public WebsiteControllerController(Website website) : base(website)
+        public WebsiteController()
+        {}
+
+        public WebsiteController(Website website) : base(website)
         {}
 
         public int Create()

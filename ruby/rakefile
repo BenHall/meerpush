@@ -1,9 +1,12 @@
-require 'meeriis'
+require 'meerpush'
+require 'rake'
+require 'dsl/create'
+require 'dsl/steps'
 
 task :default => :create
 
 desc "Create Website"
 Website::Create.new do |w|
-    w.Name = 'test_site'
-    w.Home = 'D:\SourceControl\meeriis\meeriis.tests\test_site'
+    w.Name = 'Meerpush_Website'
+    w.Home = File.join File.dirname(Dir.getwd), '\meeriis.tests\test_site'
 end

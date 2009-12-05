@@ -4,6 +4,10 @@ namespace MeerPush.IIS6
 {
     public abstract class IIS6Manager
     {
+        public IIS6Manager()
+        {
+            
+        }
         protected IIS6Manager(Website website)
         {
             Site = website;
