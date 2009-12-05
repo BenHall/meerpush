@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net;
 
-namespace MeerIIS.tests
+namespace MeerPush.tests
 {
     public static class Helper
     {

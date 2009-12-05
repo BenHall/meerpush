@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
-using MeerIIS.IIS7;
+using MeerPush.IIS7;
 using Xunit;
 
-namespace MeerIIS.tests.IIS7
+namespace MeerPush.tests.IIS7
 {
     public class WebsiteTests : IDisposable 
     {
@@ -12,7 +12,7 @@ namespace MeerIIS.tests.IIS7
         public WebsiteTests()
         {
             //TODO
-            string codeBase = @"D:\SourceControl\meeriis\meeriis.tests\";
+            string codeBase = @"D:\SourceControl\MeerPush\MeerPush.tests\";
             test_site = Path.Combine(codeBase, "test_site");
         }
 

@@ -1,7 +1,7 @@
-﻿using Meeriis;
+﻿using MeerPush;
 using Microsoft.Web.Administration;
 
-namespace MeerIIS.IIS7
+namespace MeerPush.IIS7
 {
     public class Website : IWebsite
     {

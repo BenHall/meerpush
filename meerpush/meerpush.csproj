@@ -8,8 +8,8 @@
     <ProjectGuid>{A3597E60-CF23-4842-AEFC-13E8318F5098}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MeerIIS</RootNamespace>
-    <AssemblyName>meeriis</AssemblyName>
+    <RootNamespace>MeerPush</RootNamespace>
+    <AssemblyName>meerpush</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

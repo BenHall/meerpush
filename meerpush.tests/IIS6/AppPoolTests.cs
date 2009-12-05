@@ -1,7 +1,7 @@
-﻿using MeerIIS.IIS6;
+﻿using MeerPush.IIS6;
 using Xunit;
 
-namespace MeerIIS.tests.IIS6
+namespace MeerPush.tests.IIS6
 {
     public class AppPoolTests
     {

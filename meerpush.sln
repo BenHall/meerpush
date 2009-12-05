@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "meeriis", "meeriis\meeriis.csproj", "{A3597E60-CF23-4842-AEFC-13E8318F5098}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "meerpush", "meerpush\meerpush.csproj", "{A3597E60-CF23-4842-AEFC-13E8318F5098}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "meeriis.tests", "meeriis.tests\meeriis.tests.csproj", "{A798211D-9AE4-4384-9DD6-291C9B6E298D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "meerpush.tests", "meerpush.tests\meerpush.tests.csproj", "{A798211D-9AE4-4384-9DD6-291C9B6E298D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

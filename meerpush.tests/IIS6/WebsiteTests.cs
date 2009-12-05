@@ -1,8 +1,8 @@
 ﻿using System.IO;
-using MeerIIS.IIS6;
+using MeerPush.IIS6;
 using Xunit;
 
-namespace MeerIIS.tests.IIS6
+namespace MeerPush.tests.IIS6
 {
     public class WebsiteTests
     {
@@ -11,7 +11,7 @@ namespace MeerIIS.tests.IIS6
         public WebsiteTests()
         {
             //TODO
-            string codeBase = @"C:\sourcecode\meeriis\meeriis.tests";
+            string codeBase = @"C:\sourcecode\MeerPush\MeerPush.tests";
             test_site = Path.Combine(codeBase, "test_site");
         }
 

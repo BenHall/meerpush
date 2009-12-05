@@ -1,7 +1,7 @@
 ﻿using System;
 using System.DirectoryServices;
 
-namespace MeerIIS.IIS6
+namespace MeerPush.IIS6
 {
     public class AppPool : IAppPool
     {

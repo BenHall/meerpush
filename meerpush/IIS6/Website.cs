@@ -1,8 +1,8 @@
 ﻿using System;
 using System.DirectoryServices;
-using Meeriis;
+using MeerPush;
 
-namespace MeerIIS.IIS6
+namespace MeerPush.IIS6
 {
     public class Website : IWebsite
     {

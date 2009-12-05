@@ -1,4 +1,4 @@
-namespace Meeriis
+namespace MeerPush
 {
     public interface IWebsite
     {
