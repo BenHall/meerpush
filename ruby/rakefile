@@ -1,6 +1,7 @@
 require 'meerpush'
 
 task :default => [:delete, :create, :start]
+task :default2 => [:delete2, :create2, :start2]
 
 desc "Delete Website"
 Website::Delete.new do |w|
@@ -15,5 +16,22 @@ end
 
 desc "Start Website"
 Website::Start.new do |w|
+    w.name = 'Meerpush_Website'
+  end
+  
+  
+desc "Delete Website"
+delete_site(:delete2) do |w|
+    w.name = 'Meerpush_Website'
+end
+
+desc "Create Website"
+create_site(:create2) do |w|
+    w.name = 'Meerpush_Website'
+    w.home = 'C:\inetpub\wwwroot'
+end
+
+desc "Start Website"
+start_site(:start2) do |w|
     w.name = 'Meerpush_Website'
 end

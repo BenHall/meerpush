@@ -1,6 +1,19 @@
 require 'rake'
 require 'rake/tasklib'
 
+def create_site(name=:create, &block)
+	Website::Create.new(name, &block)
+end
+
+def delete_site(name=:delete, &block)
+	Website::Delete.new(name, &block)
+end
+
+def start_site(name=:start, &block)
+	Website::Start.new(name, &block)
+end
+
+
 module Website
   class Create < Rake::TaskLib
       attr_accessor :name
