@@ -13,10 +13,10 @@ Gem::Specification.new do |s|
   s.description = %q{MeerPush - Automated deployment for ASP.net websites. Part of Meerkatalyst.com}
   s.email = %q{ben@benhall.me.uk}
   s.extra_rdoc_files = [
-    "README"
+    "README.markdown"
   ]
   s.files = [
-    "README",
+    "README.markdown",
      "example/dsl/README",
      "example/dsl/script",
      "example/rakefile",
