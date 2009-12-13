@@ -54,7 +54,7 @@ namespace :jeweler do
     gemspec.email = "ben@benhall.me.uk"
     gemspec.homepage = "http://github.com/BenHall/meerpush"
     gemspec.authors = ["Ben Hall"]
-    gemspec.files =  FileList["*.rb", "README", "{example,lib}/**/*"]
+    gemspec.files =  FileList["*.rb", "README*", "{example,lib}/**/*"]
   end
  rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install jeweler"
