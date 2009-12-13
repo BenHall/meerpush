@@ -1,7 +1,7 @@
 namespace :example do
   require 'lib/meerpush'
    
-  task :default => [:delete, :create, :start]
+  task :deploy => [:delete, :create, :start]
 
   desc "Delete Website"
   delete_site :delete do |w|
@@ -21,7 +21,7 @@ namespace :example do
     
   namespace :alt  do
 
-    task :default => [:delete, :create, :start]
+    task :deploy => [:delete, :create, :start]
 
     desc "Delete Website"
     Website::Delete.new do |w|
