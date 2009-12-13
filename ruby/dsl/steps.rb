@@ -1,8 +1,8 @@
 def remove_website(name, server='localhost')
     puts "Deleting website #{name} on #{server}"
-    @w = MeerPush::IIS6::WebsiteController.new
+    @w = MeerPush::IIS7::WebsiteController.new
     @site = MeerPush::Website.new
-	@site.server = server
+	  @site.server = server
     @site.name = name
     @w.Site = @site
     @w.delete if @w.exists
@@ -10,9 +10,9 @@ end
 
 def create_website(name, server='localhost')
     puts "Creating website #{name} on #{server}"
-	@w = MeerPush::IIS6::WebsiteController.new
+	  @w = MeerPush::IIS7::WebsiteController.new
     @site = MeerPush::Website.new
-	@site.server = server
+	  @site.server = server
     @site.name = name
 end
 
@@ -34,7 +34,7 @@ end
 def create_and_start()
 	puts "Creating and starting"
     @w.Site = @site
-	@w.create
+	  @w.create
     @w.start
 end
 

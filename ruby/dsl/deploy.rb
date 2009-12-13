@@ -1,9 +1,11 @@
 namespace :dsl  do
   desc "Creating IIS site from script"
+    
   task :deploy do
       to_call = []
       missing = []
-      File.readlines('dsl\script').map do |line|
+      file = ENV['script']
+      File.readlines(file).map do |line|
           method = get_method line
           args = get_arguments line
           defined = is_method_defined? method, args
@@ -49,11 +51,6 @@ namespace :dsl  do
 
   def get_method(line)
        m_no_param = line
-       
-
-
-
-
        arg_index = line.index("'")
        unless arg_index.nil?
           index = arg_index - 1

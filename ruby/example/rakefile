@@ -1,0 +1,41 @@
+require 'meerpush'
+ 
+task :default => [:delete, :create, :start]
+
+desc "Delete Website"
+delete_site :delete do |w|
+    w.name = 'Meerpush_Website'
+end
+
+desc "Create Website"
+create_site :create => :delete do |w|
+    w.name = 'Meerpush_Website'
+    w.home = 'C:\inetpub\wwwroot'
+end
+
+desc "Start Website"
+start_site :start do |w|
+    w.name = 'Meerpush_Website'
+end
+  
+namespace :alt  do
+
+  task :default => [:delete, :create, :start]
+
+  desc "Delete Website"
+  Website::Delete.new do |w|
+      w.name = 'Meerpush_Website'
+  end
+
+  desc "Create Website"
+  Website::Create.new do |w|
+      w.name = 'Meerpush_Website'
+      w.home = 'C:\inetpub\wwwroot'
+  end
+
+  desc "Start Website"
+  Website::Start.new do |w|
+      w.name = 'Meerpush_Website'
+  end
+
+end

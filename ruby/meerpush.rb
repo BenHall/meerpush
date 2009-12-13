@@ -1,5 +1,5 @@
 begin 
-  require '../meerpush/bin/Debug/meerpush.dll'
+  require 'libs/meerpush.dll'
 rescue LoadError 
   raise 'Unable to load MeerPush.dll. Ensure you are running MeerPush via IronRuby'
 end
