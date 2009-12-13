@@ -1,0 +1,62 @@
+namespace :example do
+  require 'lib/meerpush'
+   
+  task :default => [:delete, :create, :start]
+
+  desc "Delete Website"
+  delete_site :delete do |w|
+      w.name = 'Meerpush_Website'
+  end
+
+  desc "Create Website"
+  create_site :create => :delete do |w|
+      w.name = 'Meerpush_Website'
+      w.home = 'C:\inetpub\wwwroot'
+  end
+
+  desc "Start Website"
+  start_site :start do |w|
+      w.name = 'Meerpush_Website'
+  end
+    
+  namespace :alt  do
+
+    task :default => [:delete, :create, :start]
+
+    desc "Delete Website"
+    Website::Delete.new do |w|
+        w.name = 'Meerpush_Website'
+    end
+
+    desc "Create Website"
+    Website::Create.new do |w|
+        w.name = 'Meerpush_Website'
+        w.home = 'C:\inetpub\wwwroot'
+    end
+
+    desc "Start Website"
+    Website::Start.new do |w|
+        w.name = 'Meerpush_Website'
+    end
+
+  end
+end
+
+
+
+namespace :jeweler do
+ begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gemspec|
+    gemspec.name = "meerpush"
+    gemspec.summary = "MeerPush - Automated deployment for ASP.net websites"
+    gemspec.description = "MeerPush - Automated deployment for ASP.net websites. Part of Meerkatalyst.com"
+    gemspec.email = "ben@benhall.me.uk"
+    gemspec.homepage = "http://github.com/BenHall/meerpush"
+    gemspec.authors = ["Ben Hall"]
+    gemspec.files =  FileList["*.rb", "{example,lib}/**/*"]
+  end
+ rescue LoadError
+  puts "Jeweler not available. Install it with: sudo gem install jeweler"
+ end
+end
